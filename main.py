@@ -40,7 +40,7 @@ def loadConfig():
         print(error)
         os.system('pause')
 
-def addInstalledCommands(binDir):
+def addInstalledCommands():
     for command in config["COMMANDS"].keys():
         loadedCommands[command] = config["COMMANDS"][command]
 
@@ -73,6 +73,7 @@ def processCommand(commandRaw):
 
 def main():
     loadConfig()
+    addInstalledCommands()
     print("p3Shell")
 
     online = True
