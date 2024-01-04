@@ -12,7 +12,7 @@ config = {
     "chdircmds": ["cd", "chdir"],
     "CTRL_C_EXIT": False,
     "STARTING_DIRECTORY": os.path.expanduser('~'),
-    "PROMPT": "os.getcwd()+\" p3> \""
+    "PROMPT": "os.getcwd()+\" p3> \"",
     "COMMANDS": {
     }
 }
