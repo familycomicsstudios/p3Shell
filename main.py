@@ -50,7 +50,7 @@ def processCommand(commandRaw):
     try:
         if cmdSplit[0] in config["chdircmds"]:
             os.chdir(" ".join(cmdSplit[1:]))
-        if cmdSplit[0] == "exit":
+        elif cmdSplit[0] == "exit":
             print("exit")
             sys.exit()
         else:
