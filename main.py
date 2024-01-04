@@ -21,6 +21,8 @@ loadedCommands = {
     "p3CommandTest": "echo Hello!"
 }
 
+__version__ = "0.1.0"
+
 class PromptError:
     pass
 
@@ -72,9 +74,9 @@ def processCommand(commandRaw):
         print(error)
 
 def main():
+    print("p3shell v"+__version__+" by Themadpunter")
     loadConfig()
     addInstalledCommands()
-    print("p3Shell")
 
     online = True
     os.chdir(config["STARTING_DIRECTORY"])
