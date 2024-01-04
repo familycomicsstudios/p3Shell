@@ -13,6 +13,12 @@ config = {
     "CTRL_C_EXIT": False,
     "STARTING_DIRECTORY": os.path.expanduser('~'),
     "PROMPT": "os.getcwd()+\" p3> \""
+    "COMMANDS": {
+    }
+}
+
+loadedCommands = {
+    "p3CommandTest": "echo Hello!"
 }
 
 class PromptError:
@@ -34,6 +40,10 @@ def loadConfig():
         print(error)
         os.system('pause')
 
+def addInstalledCommands(binDir):
+    for command in config["COMMANDS"].keys():
+        loadedCommands[command] = config["COMMANDS"][command]
+
 def processCommandAlt(commandRaw):
     cmdSplit = commandRaw.split(" ")
     try:
@@ -53,6 +63,8 @@ def processCommand(commandRaw):
         elif cmdSplit[0] == "exit":
             print("exit")
             sys.exit()
+        elif cmdSplit[0] in loadedCommands.keys():
+            os.system(loadedCommands[cmdSplit[0]])
         else:
             os.system(commandRaw)
 
