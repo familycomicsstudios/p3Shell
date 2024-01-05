@@ -14,6 +14,7 @@ config = {
     "STARTING_DIRECTORY": os.path.expanduser('~'),
     "PROMPT": "os.getcwd()+\" p3> \"",
     "COMMANDS": {
+        "cd..": "cd .."
     }
 }
 
@@ -66,7 +67,8 @@ def processCommand(commandRaw):
             print("exit")
             sys.exit()
         elif cmdSplit[0] in loadedCommands.keys():
-            os.system(loadedCommands[cmdSplit[0]])
+            processCommand(loadedCommands[cmdSplit[0]])
+            # os.system(loadedCommands[cmdSplit[0]])
         else:
             os.system(commandRaw)
 
